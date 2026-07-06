@@ -1,0 +1,1197 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love... CHUCHA ❤️</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(#050510,#180016);color:#fff;overflow-x:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px}
+h1{font-size:2.4rem;color:#ff7aa8}
+button{padding:14px 28px;border:none;border-radius:30px;background:#ff4f8b;color:#fff;font-size:1rem;cursor:pointer}
+#letter{display:none;max-width:800px;margin:30px auto;padding:20px;line-height:1.8}
+.star{position:fixed;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+.heart{
+  position:fixed;
+  color:#ff4d88;
+  font-size:20px;
+  animation:floatUp 8s linear infinite;
+  pointer-events:none;
+  opacity:.8;
+}
+
+@keyframes floatUp{
+  0%{
+    transform:translateY(100vh) scale(.6);
+    opacity:0;
+  }
+  20%{
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-120vh) scale(1.3);
+    opacity:0;
+  }
+}
+.moon{
+position:absolute;
+top:60px;
+right:40px;
+width:120px;
+height:120px;
+border-radius:50%;
+background:#fff;
+box-shadow:
+0 0 30px white,
+0 0 60px white,
+0 0 100px #d8d8ff;
+opacity:.95;
+}
+
+.petal{
+position:fixed;
+top:-30px;
+color:#ff5b8f;
+font-size:22px;
+pointer-events:none;
+animation:fall 8s linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-10vh) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+#gallery img{
+
+transition:.5s;
+cursor:pointer;
+
+}
+
+#gallery img:hover{
+
+transform:scale(1.08);
+
+}
+#reasons{
+
+margin-top:50px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.08);
+
+padding:18px;
+
+margin:18px auto;
+
+width:90%;
+
+max-width:500px;
+
+border-radius:18px;
+
+backdrop-filter:blur(10px);
+
+transition:.5s;
+
+}
+
+.card:hover{
+
+transform:scale(1.05);
+
+background:rgba(255,105,180,.25);
+
+}
+
+#final{
+
+margin-top:50px;
+
+animation:fadeIn 2s;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+#lockScreen{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(#050510,#180016);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  text-align:center;
+  padding:20px;
+}
+
+.lockBox{
+  background:rgba(255,255,255,.08);
+  padding:30px;
+  border-radius:25px;
+  max-width:350px;
+  width:90%;
+  box-shadow:0 0 30px rgba(255,79,139,.4);
+  backdrop-filter:blur(10px);
+}
+
+.lockBox h2{
+  color:#ff7aa8;
+}
+
+.lockBox input{
+  width:90%;
+  padding:14px;
+  border:none;
+  border-radius:25px;
+  margin:15px 0;
+  text-align:center;
+  font-size:1rem;
+  outline:none;
+}
+
+#errorMsg{
+  color:#ff8ab5;
+  font-size:14px;
+  display:none;
+}
+.videoPage{
+  display:none;
+  min-height:100vh;
+  padding:60px 20px;
+  text-align:center;
+  background:linear-gradient(#050510,#25001f);
+}
+
+.videoBox{
+  max-width:700px;
+  margin:30px auto;
+  padding:20px;
+  background:rgba(255,255,255,.08);
+  border-radius:25px;
+  box-shadow:0 0 30px rgba(255,79,139,.35);
+  backdrop-filter:blur(10px);
+}
+
+#ourVideo{
+  display:none;
+  width:100%;
+  max-width:600px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+.loveMsg{
+  font-size:20px;
+  line-height:1.7;
+  color:#ffd6e5;
+}
+.loveQuestionPage{
+  display:none;
+  min-height:100vh;
+  padding:60px 20px;
+  text-align:center;
+  background:linear-gradient(#050510,#2b001f);
+}
+
+.questionBox{
+  max-width:650px;
+  margin:30px auto;
+  padding:25px;
+  background:rgba(255,255,255,.08);
+  border-radius:25px;
+  box-shadow:0 0 30px rgba(255,79,139,.35);
+  backdrop-filter:blur(10px);
+}
+
+.questionBox h1{
+  color:#ff8ab5;
+}
+
+.answerButtons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.noBtn{
+  background:#444;
+}
+
+#errorLoveBox{
+  display:none;
+  margin-top:30px;
+}
+
+#noVideo{
+  display:none;
+  width:100%;
+  max-width:550px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+#yesLoveBox{
+  display:none;
+  margin-top:30px;
+  font-size:21px;
+  line-height:1.7;
+  color:#ffd6e5;
+}
+.runAwayPage{
+  display:none;
+  min-height:100vh;
+  padding:60px 20px;
+  text-align:center;
+  background:linear-gradient(#050510,#2b001f);
+}
+
+.runBox{
+  max-width:650px;
+  margin:30px auto;
+  padding:25px;
+  background:rgba(255,255,255,.08);
+  border-radius:25px;
+  box-shadow:0 0 30px rgba(255,79,139,.35);
+  backdrop-filter:blur(10px);
+}
+
+.runButtonArea{
+  position:relative;
+  height:180px;
+  margin-top:30px;
+}
+
+.yesBtn{
+  position:absolute;
+  left:50%;
+  top:20px;
+  transform:translateX(-120%);
+}
+
+#runAwayNoBtn{
+  position:absolute;
+  left:50%;
+  top:20px;
+  transform:translateX(20%);
+  background:#444;
+  transition:.3s;
+}
+
+#noWarningMsg{
+  display:none;
+  color:#ff8ab5;
+  font-size:20px;
+  margin-top:20px;
+  line-height:1.6;
+}
+
+.nextLovePage{
+  display:none;
+  min-height:100vh;
+  padding:60px 20px;
+  text-align:center;
+  background:linear-gradient(#050510,#300024);
+}
+.finalLovePage{
+  display:none;
+  min-height:100vh;
+  padding:60px 20px;
+  text-align:center;
+  background:linear-gradient(#050510,#2b001f);
+}
+
+.finalBox{
+  max-width:800px;
+  margin:30px auto;
+  padding:25px;
+  background:rgba(255,255,255,.08);
+  border-radius:25px;
+  box-shadow:0 0 35px rgba(255,79,139,.35);
+  backdrop-filter:blur(10px);
+}
+
+.finalPhotos img{
+  width:230px;
+  max-width:90%;
+  border-radius:20px;
+  margin:10px;
+  box-shadow:0 0 20px rgba(255,255,255,.25);
+  transition:.5s;
+}
+
+.finalPhotos img:hover{
+  transform:scale(1.07);
+}
+
+.finalMessage{
+  font-size:20px;
+  line-height:1.8;
+  color:#ffd6e5;
+  white-space:pre-line;
+  margin-top:25px;
+}
+
+.forgiveButtons{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+#forgiveVideo{
+  display:none;
+  width:100%;
+  max-width:600px;
+  border-radius:20px;
+  margin-top:25px;
+  box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+#forgiveError{
+  display:none;
+  margin-top:25px;
+  color:#ff8ab5;
+  font-size:21px;
+  line-height:1.7;
+}
+
+.noForgiveBtn{
+  background:#444;
+}
+
+#finalSong{
+  margin-top:20px;
+  width:90%;
+  max-width:400px;
+}
+</style>
+</head>
+<body>
+  <div id="lockScreen">
+  <div class="lockBox">
+    <h2>🔒 Private Love Page</h2>
+    <p>Only the one who knows the password can enter ❤️</p>
+
+    <input type="password" id="passwordInput" placeholder="Enter Password">
+
+    <br>
+
+    <button onclick="checkPassword()">Unlock My Heart ❤️</button>
+
+    <p id="errorMsg">Wrong password... try again 💔</p>
+  </div>
+</div>
+<div class="hero" id="hero">
+  <div class="moon"></div>
+<h1>For My Love... CHUCHA ❤️</h1>
+<p>Some stories don't <ne></ne>ed hundreds of pages... they just need one honest heart.</p>
+<button onclick="openLetter()">✨ Click To Enter My Heart ✨</button>
+</div>
+
+<div id="letter">
+<h2>💖 My Love... CHUCHA 💖</h2>
+
+<p id="typewriter"></p>
+
+<br>
+
+<button onclick="showGallery()">
+📸 Our Memories ❤️
+</button>
+
+<div id="gallery" style="display:none; margin-top:25px;">
+
+<img src="photo1.jpg" width="250" style="border-radius:20px;margin:10px;">
+
+<img src="photo2.jpg" width="250" style="border-radius:20px;margin:10px;">
+
+<img src="photo3.jpg" width="250" style="border-radius:20px;margin:10px;">
+<hr style="margin-top:40px;border:1px solid #ff5b8f;">
+
+<h2 style="color:#ff8ab5;">
+No matter what happened yesterday...
+</h2>
+
+<h3>
+I still choose you today,
+tomorrow,
+and forever. ❤️
+</h3>
+
+<h2>
+Forever Yours,
+Heer ❤️
+</h2>
+<div id="reasons">
+
+<h2>💖 100 Reasons Why I'll Always Choose You 💖</h2>
+
+<div id="reasonBox" class="card">
+Click the button below ❤️
+</div>
+
+<br>
+
+<button onclick="nextReason()">
+❤️ Show Me A Reason ❤️
+</button>
+<br><br>
+
+<button onclick="openVideoPage()">
+🎥 Open Our Special Video ❤️
+</button>
+
+
+</div>
+
+<br><br>
+
+<button onclick="finalMessage()">
+❤️ One Last Surprise ❤️
+</button>
+
+<div id="final" style="display:none;">
+
+<h1>My Love... CHUCHA ❤️</h1>
+
+<p style="font-size:22px;line-height:1.8">
+
+If I could erase every misunderstanding,
+I would.
+
+If I could hug you right now
+I would never let go.
+
+The past cannot be changed...
+
+But our future is still waiting for us.
+
+I don't want a perfect story.
+
+I only want OUR story.
+
+Forever...
+Always...
+Yours,
+
+❤️ HEER ❤️
+
+</p>
+
+</div>
+</div>
+</div>
+
+<audio id="music" controls style="position:fixed;bottom:15px;left:15px">
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+<div id="loveQuestionPage" class="loveQuestionPage">
+  <div class="questionBox">
+    <h1>Do You Love Me? ❤️</h1>
+
+    <p style="font-size:20px;line-height:1.7;">
+      Think carefully before answering...  
+      because my heart is waiting for your reply. 💖
+    </p>
+
+    <div class="answerButtons">
+      <button onclick="yesLoveAnswer()">
+        If Yes, Then You Can Open ❤️
+      </button>
+
+      <button class="noBtn" onclick="noLoveAnswer()">
+        No 💔
+      </button>
+    </div>
+
+    <div id="yesLoveBox">
+      <h2>Yayyy! I knew it ❤️</h2>
+
+      <p>
+        I love you more than words can ever explain.<br>
+        You are my favorite person, my peace, my smile,<br>
+        and the most beautiful part of my life. 💖<br><br>
+
+        Now you are allowed to enter my heart forever. ❤️
+      </p>
+    </div>
+
+    <div id="errorLoveBox">
+      <h2 style="color:#ff4f8b;">Error 404 💔</h2>
+
+      <p style="font-size:20px;line-height:1.7;">
+        Wrong answer detected! 😭<br>
+        This heart only accepts YES. ❤️<br><br>
+        Please go back and click the Yes button. 😌
+      </p>
+
+      <video id="noVideo" controls>
+        <source src="novideo.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+
+      <br><br>
+
+      <button onclick="goBackToYes()">
+        Okay, I will choose Yes ❤️
+      </button>
+    </div>
+
+    <br><br>
+
+    <button onclick="backFromLoveQuestion()">
+      ⬅ Back
+    </button>
+  </div>
+  <br><br>
+
+<button onclick="openRunAwayPage()">
+  💞 Open Next Love Test ❤️
+</button>
+</div>
+<div id="videoPage" class="videoPage">
+  <div class="videoBox">
+    <h1>🎥 Our Special Moment ❤️</h1>
+
+    <p class="loveMsg">
+      Some memories are not just videos...<br>
+      they are little pieces of our heart. ❤️<br><br>
+
+      Every second with you feels special,<br>
+      and this video will always remind me<br>
+      how beautiful OUR story is. 💖
+    </p>
+
+    <button onclick="showOurVideo()">
+      ▶️ Play Our Video ❤️
+    </button>
+
+    <br>
+
+    <video id="ourVideo" controls>
+      <source src="ourvideo.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+
+    <br><br>
+    <br><br>
+
+<button onclick="openLoveQuestionPage()">
+  💘 Open Love Question ❤️
+</button>
+
+<br><br>
+
+    <button onclick="goBackHome()">
+      ⬅ Back To Love Page
+    </button>
+  </div>
+</div>
+<div id="runAwayPage" class="runAwayPage">
+  <div class="runBox">
+    <h1>Will You Stay With Me Forever? ❤️</h1>
+
+    <p style="font-size:20px;line-height:1.7;">
+      Choose carefully... because my heart already knows the answer. 💖
+    </p>
+
+    <div class="runButtonArea">
+      <button class="yesBtn" onclick="openNextLovePage()">
+        Yes ❤️
+      </button>
+
+      <button id="runAwayNoBtn" onclick="moveNoButton()">
+        No 💔
+      </button>
+    </div>
+
+    <p id="noWarningMsg">
+      Error! Wrong button selected 😭<br>
+      Please click YES only, my love ❤️
+    </p>
+<br><br>
+
+<button onclick="openFinalLovePage()">
+  💌 Open Last Page ❤️
+</button>
+
+<br><br>
+    <button onclick="backFromRunAwayPage()">
+      ⬅ Back
+    </button>
+  </div>
+</div>
+
+
+<div id="nextLovePage" class="nextLovePage">
+  <div class="runBox">
+    <h1>I Knew You Would Choose Yes ❤️</h1>
+
+    <p style="font-size:22px;line-height:1.8;color:#ffd6e5;">
+      This is the answer my heart was waiting for. 💖<br><br>
+
+      No matter how many choices life gives us,<br>
+      I will always choose you.<br><br>
+
+      You are my favorite person,<br>
+      my peace,<br>
+      my happiness,<br>
+      and my forever love. ❤️
+    </p>
+
+    <button onclick="backToRunAwayQuestion()">
+      ⬅ Back To Question
+    </button>
+  </div>
+</div>
+<div id="finalLovePage" class="finalLovePage">
+  <div class="finalBox">
+
+    <h1>For You, Meri Jaan 🫀🥹</h1>
+
+    <div class="finalPhotos">
+      <img src="finalphoto1.jpg">
+      <img src="finalphoto2.jpg">
+      <img src="finalphoto3.jpg">
+    </div>
+
+    <audio id="finalSong" controls>
+      <source src="finalsong.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+
+    <p class="finalMessage">
+Meri jaan🫀🥹
+
+I know mai tainu bht tng krdi ..dukhi krdi bda preshan krdi ...nd tainu bht hurt v kr dindi ....but schi ch tainu bht pyaar krdi mai....tu soch v ni skda k kinna pyaar krdi💋🫂😘🧿...i love you the most ..and the most of the mostest 🥺❤️......please maaf krde ...and aaja hun bss kr yr Haini rheya jnda ewe ..please manja naa🥺🥺🥺🥺🥺🥺❤️❤️❤️❤️❤️i am sorryy 😔🫂❤️
+    </p>
+
+    <h2 style="color:#ff8ab5;">
+      Do you forgive me? 🥺❤️
+    </h2>
+
+    <div class="forgiveButtons">
+      <button onclick="forgiveYes()">
+        Yes, I forgive you ❤️
+      </button>
+
+      <button class="noForgiveBtn" onclick="forgiveNo()">
+        No 💔
+      </button>
+    </div>
+
+    <div id="forgiveError">
+      Error 404 💔<br>
+      Wrong answer baby 😭<br>
+      Abb tujhe manna hi hoga... please click Yes 🥺❤️
+    </div>
+
+    <video id="forgiveVideo" controls>
+      <source src="forgivevideo.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+
+    <br><br>
+
+    <button onclick="backFromFinalLovePage()">
+      ⬅ Back
+    </button>
+
+  </div>
+</div>
+
+<script>
+const correctPassword = "Chuchalovesheer";
+
+function checkPassword(){
+  const enteredPassword = document.getElementById("passwordInput").value;
+
+  if(enteredPassword === correctPassword){
+    document.getElementById("lockScreen").style.display = "none";
+  }else{
+    document.getElementById("errorMsg").style.display = "block";
+  }
+}
+
+document.getElementById("passwordInput").addEventListener("keydown", function(event){
+  if(event.key === "Enter"){
+    checkPassword();
+  }
+});
+for(let i=0;i<120;i++){
+ let s=document.createElement('div');
+ s.className='star';
+ s.style.left=Math.random()*100+'vw';
+ s.style.top=Math.random()*100+'vh';
+ s.style.animationDelay=(Math.random()*2)+'s';
+ document.body.appendChild(s);
+}
+setInterval(function(){
+
+    let heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML="❤";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=(20+Math.random()*25)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+
+},500);
+function openLetter(){
+ document.getElementById('hero').style.display='none';
+ document.getElementById('letter').style.display='block';
+ let m = document.getElementById
+ typeWriter();
+ ('music');
+ if(m) m.play().catch(()=>{});
+}
+const message =
+`My Love... CHUCHA ❤️
+
+""I'm sorry...
+
+Maybe I can't change the past...
+
+But I promise I will never stop loving you.
+
+You're my peace,
+my safe place,
+my favourite person,
+and the most beautiful chapter of my life.
+
+No misunderstanding...
+No distance...
+No bad day...
+
+will ever make me stop choosing YOU.
+
+Forever Yours,
+❤️ Heer ❤️`;
+
+let i = 0;
+
+function typeWriter(){
+
+if(i < message.length){
+
+document.getElementById("typewriter").innerHTML += message.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,40);
+
+}
+""
+}
+
+function showGallery(){
+
+document.getElementById("gallery").style.display="block";
+
+}
+setInterval(function(){
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(petal);
+
+setTimeout(function(){
+
+petal.remove();
+
+},8000);
+
+},700);
+function finalMessage(){
+
+document.getElementById("final").style.display="block";
+
+window.scrollTo({
+
+top:document.body.scrollHeight,
+
+behavior:"smooth"
+
+});
+
+}
+const reasons=[
+
+"❤️ Because your smile feels like home.",
+"❤️ Because you make my world brighter.",
+"❤️ Because your hugs heal my soul.",
+"❤️ Because your voice calms me.",
+"❤️ Because your happiness matters to me.",
+"❤️ Because you are my safe place.",
+"❤️ Because your eyes make me forget everything.",
+"❤️ Because your laugh is my favorite sound.",
+"❤️ Because every moment with you is special.",
+"❤️ Because you understand me.",
+"❤️ Because you support me.",
+"❤️ Because you inspire me.",
+"❤️ Because you're kind.",
+"❤️ Because you respect me.",
+"❤️ Because your hugs fix everything.",
+"❤️ Because you make ordinary moments beautiful.",
+"❤️ Because I trust you.",
+"❤️ Because you're my comfort.",
+"❤️ Because I can be myself with you.",
+"❤️ Because I'd still choose you."
+
+];
+
+let currentReason=0;
+
+function nextReason(){
+
+if(currentReason<reasons.length){
+
+document.getElementById("reasonBox").innerHTML=
+"<h3>"+reasons[currentReason]+"</h3>";
+
+currentReason++;
+
+}else{
+
+document.getElementById("reasonBox").innerHTML=
+"<h2>❤️ There are still 80 more reasons... but the biggest one is simply because YOU are YOU. ❤️</h2>";
+
+}
+
+}
+function openVideoPage(){
+  document.getElementById("letter").style.display = "none";
+  document.getElementById("hero").style.display = "none";
+  document.getElementById("videoPage").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function showOurVideo(){
+  const video = document.getElementById("ourVideo");
+  const music = document.getElementById("music");
+
+  if(music){
+    music.pause();
+    music.currentTime = 0;
+  }
+
+  video.style.display = "block";
+  video.play().catch(()=>{});
+}
+function goBackHome(){
+  document.getElementById("videoPage").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+function openLoveQuestionPage(){
+  document.getElementById("hero").style.display = "none";
+  document.getElementById("letter").style.display = "none";
+
+  const videoPage = document.getElementById("videoPage");
+  if(videoPage){
+    videoPage.style.display = "none";
+  }
+
+  document.getElementById("loveQuestionPage").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function yesLoveAnswer(){
+  document.getElementById("yesLoveBox").style.display = "block";
+  document.getElementById("errorLoveBox").style.display = "none";
+
+  const noVideo = document.getElementById("noVideo");
+  if(noVideo){
+    noVideo.pause();
+    noVideo.currentTime = 0;
+    noVideo.style.display = "none";
+  }
+}
+
+function noLoveAnswer(){
+  document.getElementById("yesLoveBox").style.display = "none";
+  document.getElementById("errorLoveBox").style.display = "block";
+
+  const music = document.getElementById("music");
+  if(music){
+    music.pause();
+  }
+
+  const noVideo = document.getElementById("noVideo");
+  noVideo.style.display = "block";
+  noVideo.play().catch(()=>{});
+}
+
+function goBackToYes(){
+  document.getElementById("errorLoveBox").style.display = "none";
+
+  const noVideo = document.getElementById("noVideo");
+  if(noVideo){
+    noVideo.pause();
+    noVideo.currentTime = 0;
+    noVideo.style.display = "none";
+  }
+}
+
+function backFromLoveQuestion(){
+  document.getElementById("loveQuestionPage").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+
+  const noVideo = document.getElementById("noVideo");
+  if(noVideo){
+    noVideo.pause();
+    noVideo.currentTime = 0;
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+let noClickCount = 0;
+
+function openRunAwayPage(){
+  document.getElementById("hero").style.display = "none";
+  document.getElementById("letter").style.display = "none";
+
+  const videoPage = document.getElementById("videoPage");
+  if(videoPage){
+    videoPage.style.display = "none";
+  }
+
+  const loveQuestionPage = document.getElementById("loveQuestionPage");
+  if(loveQuestionPage){
+    loveQuestionPage.style.display = "none";
+  }
+
+  document.getElementById("runAwayPage").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function moveNoButton(){
+  noClickCount++;
+
+  const noBtn = document.getElementById("runAwayNoBtn");
+  const warning = document.getElementById("noWarningMsg");
+
+  const randomLeft = Math.floor(Math.random() * 70) + 5;
+  const randomTop = Math.floor(Math.random() * 110) + 40;
+
+  noBtn.style.left = randomLeft + "%";
+  noBtn.style.top = randomTop + "px";
+
+  if(noClickCount >= 3){
+    warning.style.display = "block";
+  }
+}
+
+function openNextLovePage(){
+  document.getElementById("runAwayPage").style.display = "none";
+  document.getElementById("nextLovePage").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function backFromRunAwayPage(){
+  document.getElementById("runAwayPage").style.display = "none";
+
+  const loveQuestionPage = document.getElementById("loveQuestionPage");
+  if(loveQuestionPage){
+    loveQuestionPage.style.display = "block";
+  }else{
+    document.getElementById("letter").style.display = "block";
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function backToRunAwayQuestion(){
+  document.getElementById("nextLovePage").style.display = "none";
+  document.getElementById("runAwayPage").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+function openFinalLovePage(){
+  document.getElementById("hero").style.display = "none";
+  document.getElementById("letter").style.display = "none";
+
+  const videoPage = document.getElementById("videoPage");
+  if(videoPage){
+    videoPage.style.display = "none";
+  }
+
+  const loveQuestionPage = document.getElementById("loveQuestionPage");
+  if(loveQuestionPage){
+    loveQuestionPage.style.display = "none";
+  }
+
+  const runAwayPage = document.getElementById("runAwayPage");
+  if(runAwayPage){
+    runAwayPage.style.display = "none";
+  }
+
+  const nextLovePage = document.getElementById("nextLovePage");
+  if(nextLovePage){
+    nextLovePage.style.display = "none";
+  }
+
+  document.getElementById("finalLovePage").style.display = "block";
+
+  const oldMusic = document.getElementById("music");
+  if(oldMusic){
+    oldMusic.pause();
+  }
+
+  const finalSong = document.getElementById("finalSong");
+  if(finalSong){
+    finalSong.play().catch(()=>{});
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function forgiveYes(){
+  document.getElementById("forgiveError").style.display = "none";
+
+  const finalSong = document.getElementById("finalSong");
+  if(finalSong){
+    finalSong.pause();
+  }
+
+  const forgiveVideo = document.getElementById("forgiveVideo");
+  forgiveVideo.style.display = "block";
+  forgiveVideo.play().catch(()=>{});
+
+  window.scrollTo({
+    top:document.body.scrollHeight,
+    behavior:"smooth"
+  });
+}
+
+function forgiveNo(){
+  document.getElementById("forgiveError").style.display = "block";
+
+  const forgiveVideo = document.getElementById("forgiveVideo");
+  if(forgiveVideo){
+    forgiveVideo.pause();
+    forgiveVideo.currentTime = 0;
+    forgiveVideo.style.display = "none";
+  }
+}
+
+function backFromFinalLovePage(){
+  document.getElementById("finalLovePage").style.display = "none";
+
+  const finalSong = document.getElementById("finalSong");
+  if(finalSong){
+    finalSong.pause();
+    finalSong.currentTime = 0;
+  }
+
+  const forgiveVideo = document.getElementById("forgiveVideo");
+  if(forgiveVideo){
+    forgiveVideo.pause();
+    forgiveVideo.currentTime = 0;
+  }
+
+  const nextLovePage = document.getElementById("nextLovePage");
+  if(nextLovePage){
+    nextLovePage.style.display = "block";
+  }else{
+    document.getElementById("letter").style.display = "block";
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+</script>
+</body>
+</<html>
